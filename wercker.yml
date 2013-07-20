@@ -4,5 +4,4 @@ build :
     - script:
         name : install manifest
         code : |
-          cd $WERCKER_ROOT
-          facter
+          puppet apply --modulepath=$MODULES_DIR $MANIFEST_DIR/init.pp
