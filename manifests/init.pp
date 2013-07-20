@@ -1,4 +1,4 @@
 # Sample manifest
-package { "rubygems":
+package { "rsync":
   ensure => latest
 }
