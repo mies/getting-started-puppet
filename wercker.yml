@@ -4,4 +4,4 @@ build :
     - script:
         name : install manifest
         code : |
-          puppet apply --modulepath=$WERCKER_SOURCE_DIR/modules $WERCKER_SOURCE_DIR/manifests/init.pp
+          sudo puppet apply --modulepath=$WERCKER_SOURCE_DIR/modules $WERCKER_SOURCE_DIR/manifests/init.pp
