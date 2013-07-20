@@ -1,4 +1,4 @@
 # Sample manifest
-package { "rsync":
-  ensure => latest
+file { "/tmp/test.txt":
+  content => "Hello world!"
 }
