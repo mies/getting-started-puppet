@@ -1,42 +1,17 @@
-# Sample manifest
-file { "/tmp/test.txt":
-  content => "Hello world!"
-}
-# == Class: scala
-#
-# Install scala from the Typesafe repository
-#
-class scala {
-  include wget
-
-  validate_re($::osfamily, '^Debian$', "This module relies on a deb package \
-and only works on Debian based distros")
-
-  wget::fetch { 'download-typesafe-repo':
-    source      => 'http://apt.typesafe.com/repo-deb-build-0002.deb',
-    destination => '/usr/local/src/repo-deb-build-0002.deb',
-    before      => Package['typesafe-repo'],
+file {'/tmp/test1':
+    ensure  => present,
+    content => "Hi.",
   }
 
-  package { 'typesafe-repo':
-    ensure   => installed,
-    source   => '/usr/local/src/repo-deb-build-0002.deb',
-    provider => dpkg,
-    notify   => Exec['apt-update-typesafe'];
+  file {'/tmp/test2':
+    ensure => directory,
+    mode   => 644,
   }
 
-  exec { 'apt-update-typesafe':
-    command     => '/usr/bin/apt-get update',
-    refreshonly => true;
+  file {'/tmp/test3':
+    ensure => link,
+    target => '/tmp/test1',
   }
 
-  package { [
-    'typesafe-stack',
-    'scala',
-  ]:
-    ensure  => installed,
-    require => Exec['apt-update-typesafe'],
-  }
-
-}
-#include 'scala'
+  notify {"I'm notifying you.":}
+  notify {"So am I!":}
