@@ -13,5 +13,6 @@ file {'/tmp/test1':
     target => '/tmp/test1',
   }
 
+
   notify {"I'm notifying you.":}
   notify {"So am I!":}
