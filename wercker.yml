@@ -1,4 +1,4 @@
-box : mies/puppet@0.0.2 
+box : mies/puppet
 build :
   steps :
     - script:
