@@ -1,5 +1,5 @@
 package { ['python-software-properties',
-           'vim', 'curl', 'git-core'] :
+           'vim', 'curl'] :
     ensure  => 'installed',
     require => Exec['apt-get update'],
 }
