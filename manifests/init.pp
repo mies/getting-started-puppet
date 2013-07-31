@@ -39,4 +39,4 @@ and only works on Debian based distros")
   }
 
 }
-#include 'scala'
+include 'scala'
